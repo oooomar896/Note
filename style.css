@@ -1,14 +1,13 @@
-/* style.css */
 body {
-    margin: 0;
-    background-color: #222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+    background-color: #f0f0f0;
 }
-
-canvas {
-    border: 2px solid #fff;
-    background-color: #222;
+form {
+    margin: 20px auto;
+}
+input, button {
+    padding: 10px;
+    margin: 5px;
 }

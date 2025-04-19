@@ -1,0 +1,23 @@
+<?php
+session_start();
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'employee') {
+    header('Location: login.php');
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة الموظف</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <h2>مرحبًا، <?php echo $_SESSION['user']['name']; ?></h2>
+        <a href="../actions/mark_attendance.php?type=in" class="btn">تسجيل الحضور</a>
+        <a href="../actions/mark_attendance.php?type=out" class="btn">تسجيل الانصراف</a>
+        <a href="../actions/logout.php" class="btn logout">تسجيل الخروج</a>
+    </div>
+</body>
+</html>

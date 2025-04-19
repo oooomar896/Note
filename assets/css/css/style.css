@@ -1,0 +1,105 @@
+/* إعداد الخط العام واتجاه الصفحة */
+body {
+    direction: rtl;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* ترويسة الصفحة */
+h2 {
+    margin-top: 50px;
+    color: #2c3e50;
+}
+
+/* تصميم الفورم */
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* الحقول */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="hidden"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* الأزرار */
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* روابط */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #21618c;
+}
+
+/* رسائل الخطأ أو التنبيهات */
+p.error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* تنسيق خاص للوحة المدير */
+.admin-panel {
+    margin-top: 30px;
+    text-align: right;
+    padding: 20px;
+}
+
+/* جدول الحضور */
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+table th {
+    background-color: #3498db;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
