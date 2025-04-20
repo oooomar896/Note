@@ -5,6 +5,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
     header('Location: login.php');
     exit();
 }
-$stmt = $pdo->query("SELECT a.*, e.name FROM attendance a JOIN employees e ON a.employee_id = e.id ORDER BY date DESC");
-$records = $stmt->fetchAll();
+$stmt = $pdo->query("SELECT * FROM employees");
+$employees = $stmt->fetchAll();
 ?>

@@ -1,0 +1,43 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الحضور والانصراف</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="attendance-body">
+    <div class="attendance-container">
+        <h2>مرحبًا، <?php echo $_SESSION['user']['name']; ?></h2>
+
+        <?php
+        require '../includes/connect.php';
+        $userId = $_SESSION['user']['id'];
+        
+        // التحقق إذا كان الموظف قد سجل الحضور اليوم
+        $stmt = $pdo->prepare("SELECT * FROM attendance WHERE employee_id = ? AND date = CURDATE()");
+        $stmt->execute([$userId]);
+        $attendance = $stmt->fetch();
+
+        if ($attendance) {
+            if ($attendance['check_out']) {
+                echo "<p>تم تسجيل الانصراف لهذا اليوم في الساعة: " . $attendance['check_out'] . "</p>";
+            } else {
+                echo "<p>تم تسجيل الحضور في الساعة: " . $attendance['check_in'] . "</p>";
+                echo '<a href="../actions/mark_attendance.php?type=out" class="btn">تسجيل الانصراف</a>';
+            }
+        } else {
+            echo '<a href="../actions/mark_attendance.php?type=in" class="btn">تسجيل الحضور</a>';
+        }
+        ?>
+        
+        <a href="dashboard.php" class="btn">العودة إلى لوحة التحكم</a>
+    </div>
+</body>
+</html>
